@@ -18,3 +18,9 @@ console.log(expenses.length);
 console.log("----------------------");
 console.log(`Период равен ${period} месяцев. Цель - заработать ${purpose} долларов`);
 console.log(`Дневной бюджет равен ${budgetDay}`);
+
+//-----Homework-01_Hard-------------
+let newExpenses = expenses.toLowerCase();
+let expensesArray = [];
+expensesArray = newExpenses.split(", ");
+console.log(expensesArray);

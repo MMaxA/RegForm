@@ -1,51 +1,28 @@
 "use strict";
 
-console.log("------- Homework-02 ----------");
-let user = prompt("Как Вас зовут?");
-console.log("Hello, " + user);
+// console.log("------- Homework-03 ----------");
 
-//-----InputData--------
 let money = prompt("Ваш месячный доход?", 0);
-let expenses = prompt(
-  "Перечислите возможные расходы за рассчитываемый период через запятую",
-  "Вода, бензин"
-);
-let amount = prompt(
-  "Во сколько обойдуться обязательные статьи расходов?",
-  3000
-);
-let deposit = confirm("Есть ли у Вас счет в банке?");
+let profit = prompt("Введите планируемые статьи доп. доходов:", "Веб-разработка, депозит в банке, фриланс");
+let extraMoney = prompt(`Введите сумму доходов за ваши доп.работы: ${profit}`, 0);
+
+let expenses = prompt("Перечислите обязательные расходы за рассчитываемый период (через запятую)", "Вода, бензин");
+let amount = prompt(`Во сколько обойдутся обязательные статьи расходов: ${expenses}?`, 0);
+
 let purpose = prompt("Сколько средств Вы бы хотели накопить?");
 
-let budgetMonth = money - amount;
-let period = Math.ceil(purpose / budgetMonth);
-let budgetDay = Math.floor(budgetMonth / 30);
+function getAccumulatedIncome() {
+  return (Number(money) + Number(extraMoney)) - Number(amount);
+}
+const accumulatedIncome = getAccumulatedIncome();
 
-//-----Output----------
-console.log(`Финансовая цель - заработать ${purpose} рублей`);
-console.log(`Бюджет на месяц - ${budgetMonth}`);
-console.log(`Обязательные расходы: ${amount}`);
-console.log(`Месяцев до достижения финансовой цели: ${period}`);
-console.log(`Дневной бюджет, рублей: ${budgetDay}`);
-
-console.log("--------Через if..else if-----------");
-if (budgetDay > 60000) {
-  console.log("У Вас высокий уровень дохода");
-} else if (30000 < budgetDay <= 60000) {
-  console.log("У Вас средний уровень дохода");
-} else if (0 < budgetDay <= 30000) {
-  console.log("К сожалению, Ваш уровень дохода ниже среднего");
-} else if (budgetDay <= 0) {
-  console.log("Упс, что-то пошло не так...");
-} else {
-  console.log("Значения вне интервала оценивания");
+function getTargetMonth() {
+  return Math.ceil(purpose / accumulatedIncome);
 }
 
-console.log("------Через тернарный оператор------");
-console.log(
-    budgetDay > 60000 ? "У Вас высокий уровень дохода" : 
-    30000 < budgetDay <= 60000 ? "У Вас средний уровень дохода" : 
-    0 < budgetDay <= 30000 ? "К сожалению, Ваш уровень дохода ниже среднего" : 
-    budgetDay < 0 ? "Упс, что-то пошло не так..." : 
-    "Значения вне интервала оценивания"
-);
+let budgetDay = Math.floor(accumulatedIncome / 30);
+
+// //-----Output----------
+console.log(`Ваш бюджет на месяц с учетом расходов составляет:`, accumulatedIncome);
+console.log(`Ваша цель накопить ${purpose} с учетом всех ваших расходов будет достигнута через`, getTargetMonth() + ` месяца`);
+console.log(`Дневной бюджет: ${budgetDay}`);

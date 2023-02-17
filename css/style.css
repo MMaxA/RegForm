@@ -1,0 +1,240 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wraper {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(39, 39, 130);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  max-width: 600px;
+  min-height: 412px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.form * {
+  outline: none;
+}
+
+.unvisible {
+  display: none;
+}
+
+.form__body {
+  width: 510px;
+  height: 100%;
+}
+
+.form__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.form__item::before {
+  content: "*";
+  display: block;
+  position: absolute;
+  top: 35px;
+  left: -10px;
+}
+
+.form__item_red::before {
+  content: "*";
+  display: block;
+  position: absolute;
+  top: 35px;
+  left: -10px;
+  color: red;
+}
+
+.form__title {
+  font-size: 50px;
+  text-align: center;
+  color: #787878;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.form__label {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  color: #787878;
+}
+
+.form__view {
+  width: 100%;
+  text-align: right;
+  margin-right: 11px;
+  margin-top: 11px;
+}
+
+.form__view:hover {
+  cursor: pointer;
+}
+
+.form__view span {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #1a226b;
+}
+
+.form__input {
+  max-width: 100%;
+  height: 49px;
+  color: #000;
+  font-size: 18px;
+  background: #ffffff;
+  border: 2px solid #787878;
+  border-radius: 10px;
+  padding: 0 20px;
+}
+
+.form__input.error {
+  border: 2px solid red;
+  box-shadow: 0 0 5px red;
+}
+
+.form__input:focus {
+  box-shadow: 0 0 10px #3847c8;
+}
+
+.form__input::placeholder {
+  padding: -20px 10px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 28px;
+  color: #cccccc;
+  transform: translateX(10px);
+  transform: translateY(3px);
+}
+
+.form__check {
+  max-width: 100%;
+  position: relative;
+  justify-content: left;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.checkbox::before {
+  content: "*";
+  display: block;
+  position: absolute;
+  top: 8px;
+  left: -10px;
+}
+
+.form__item.error::before {
+  color: red;
+}
+
+.checkbox.error::before {
+  color: red;
+}
+
+/*Начало кастомного чекбокса*/
+.checkbox.error .checkbox__label::before {
+  border: 2px solid red;
+  box-shadow: 0 0 5px red;
+}
+
+.checkbox__input {
+  display: none;
+ 
+}
+
+.checkbox__input:checked + .checkbox__label::after {
+  transform: scale(1);
+}
+
+.checkbox__label {
+  font-size: 16px;
+  line-height: 140%;
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox__label::before {
+  content: "";
+  flex: 0 0 24px;
+  align-self: flex-start;
+  height: 24px;
+  border: 2px solid #787878;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.checkbox__label::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: 14px;
+  height: 14px;
+  background-color: #3847c8;
+  border-radius: 5px;
+  transform: scale(0);
+  transition: transform 0.3s ease 0s;
+}
+/*конец кастомного чека*/
+
+.form__btn {
+  display: block;
+  width: 180px;
+  height: 52px;
+  margin: 0 auto;
+  margin-top: 15px;
+  color: #ffffff;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 16px;
+  background: #1a226b;
+  border-radius: 10px;
+}
+
+.form__btn:hover {
+  cursor: pointer;
+}
+
+.form__error {
+  height: 10px;
+  color: red;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+
+

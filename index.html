@@ -1,13 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    
+    <section class="wraper">
+        <div class="form" id="enterform">
+            <div class="form__view"><span id="view">Зарегистрироваться</span></div>
+            <form class="form__body" action="" id="form">
+                <h1 class="form__title">Вход</h1>
+                <div class="form__item">
+                    <label for="formEmail" class="form__label">Email</label>
+                    <input id="formEmail" type="text" name="email" class="form__input required _email"
+                        placeholder="Введите email" />
+                    <div class="form__error"></div>
+                </div>
+                <div class="form__item">
+                    <label for="formPass" class="form__label">Password</label>
+                    <input id="formPass" type="text" name="pass" class="form__input required"
+                        placeholder="Введите пароль">
+                    <div class="form__error"></div>
+                </div>
+                <div class="form__check">
+                    <div class="checkbox">
+                        <input class="checkbox__input required" type="checkbox" name="check" id="check" />
+                        <label for="check" class="checkbox__label"><span>Я согласен с <a href="#">Правилами пользования
+                                    приложением</a></span></label>
+                    </div>
+                </div>
+                <div class="form__error"></div>
+                <button class="form__btn" id="btnEnter">Вход</button>
+            </form>
+        </div>
+        <div class="form unvisible" id="regform">
+            <div class="form__view"><span id="view1">Авторизоваться</span></div>
+            <form class="form__body" action="" id="form">
+                <h1 class="form__title">Регистрация</h1>
+                <div class="form__item">
+                    <label for="formEmail" class="form__label">Email</label>
+                    <input id="formEmail" type="text" name="email" class="form__input required _email"
+                        placeholder="Введите email" />
+                    <div class="form__error"></div>
+                </div>
+                <div class="form__item">
+                    <label for="formPass" class="form__label">Password</label>
+                    <input id="formPass" type="text" name="pass" class="form__input required"
+                        placeholder="Введите пароль" />
+                    <div class="form__error"></div>
+                </div>
+                <div class="form__check">
+                    <div class="checkbox">
+                        <input class="checkbox__input required" type="checkbox" name="check" id="check" checked/>
+                        <label for="check" class="checkbox__label"><span>Я согласен получать обновления на
+                                почту</span></label>
+                    </div>
+                </div>
+                <div class="form__error"></div>
+                <button class="form__btn" id="btnReg">Вход</button>
+            </form>
+        </div>
+    </section>
+
     <script src="/scripts/script.js"></script>
 </body>
+
 </html>

@@ -1,9 +1,11 @@
 "use strict";
 
-//создаем переменную для хранения массива пользователей
-let users = [];
+//Предполагается, что данные приходят от Backend-а при открытии страницы.
+let users = [{email: 'admin@admin.ru', password: '11111'},{emil: 'user@user.ru', password: '22222'}];
+localStorage.setItem('users', JSON.stringify(users));
 
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function (e) {
+//   e.preventDefault();
 
   let formEnter = document.querySelector("#enterform");
   let formReg = document.querySelector("#regform");
@@ -83,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
       if (error === 0) {
-        // let users = [];
         users = JSON.parse(localStorage.getItem("users"));
         if (users.find((user) => user.email == `${formEmail.value}` && user.password == `${formPass.value}`)) {
           window.location.href = "main.html";
@@ -97,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } catch (e) {
       console.log(e);
     }
+    console.log(users);
   });
 
   // Отправка формы Регистрации
@@ -111,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
       if (error === 0) {
-        // let users = [];
         users = JSON.parse(localStorage.getItem("users"));
         if ((users.filter((user) => user.email == formEmail.value).length == 0)) {
           let userObj = {
@@ -130,5 +131,6 @@ document.addEventListener("DOMContentLoaded", function () {
     } catch (e) {
       console.log(e);
     }
+    console.log(users);
   });
-});
+// });
